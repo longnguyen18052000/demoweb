@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <div class="info w-75 mt-5">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Thông tin ứng viên</th>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <td>Họ tên: Nguyễn Văn Long</td>
+                    </tr>
+                    <tr>
+                        <td>Năm sinh: 2000</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="mr-5">Sinh viên năm: 4</span>
+                            <span>Trường: Đại học khoa học tự nhiên</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mảng thực tập mong muốn: intern frontend</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="w-75">
+            <span><strong>Các giá trị random của mảng: </strong></span>
+            <div id="array" class="array mt-2 mb-4"></div>
+        </div>
+    </div>
+
+    <div class="w-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="tab w-75 d-flex justify-content-between">
+            <button class="tablinks" onclick="openCity(event, 'Bullue_sort')">Bullue sort</button>
+            <button class="tablinks" onclick="openCity(event, 'Interchange_Sort')">Interchange Sort</button>
+            <button class="tablinks" onclick="openCity(event, 'Insertion_sort')">Insertion sort</button>
+            <button class="tablinks" onclick="openCity(event, 'Selection_Sort')">Selection Sort</button>
+            <button class="tablinks" onclick="openCity(event, 'BinaryInsertion_Sort')">Binary Insertion Sort</button>
+        </div>
+    </div>
+
+    <div id="Bullue_sort" class="tabcontent w-75 mb-5">
+        <div class="d-flex">
+            <div class="w-25">
+                <span class="d-block"><strong>Giải thuật bullue sort</strong></span>
+                <ul>
+                    <li>Bước 1: Gán i = 0</li>
+                    <li>Bước 2: j = array.length - 1</li>
+                    <li>Bước 3: Nếu array[j] < array[j - 1]</li>
+                    <li>Đúng: Thực hiện đổi chỗ array[j] và array[j - 1]</li>
+                    <li>j = j - 1</li>
+                    <li>Bước 4: Nếu j > i thì quay lại bước 3</li>
+                </ul>
+            </div>
+            <div class="w-50 mr-4">
+                <span><strong>Thuật toán sắp xếp nổi bọt bullue sort</strong></span>
+                <div id="bullue_sort" class="array mt-2 mb-3"></div>
+            </div>
+            <div class="w-25">
+                <span class="d-block"><strong>Độ phức tạp của thuật toán bullue sort</strong></span>
+                <span class="d-block">do dùng hai vòng lặp lồng vào nhau nên độ phức tạp thời gian trung bình của thuật
+                    toán này là
+                    O(n2).</span>
+                <span>Thời gian chạy: </span>
+                <span id="bullue"></span>
+                <span>ms</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="Interchange_Sort" class="tabcontent w-75 mb-5">
+        <div class="d-flex">
+            <div class="w-25">
+                <span><strong>Giải thuật đổi chỗ trực tiếp Interchange Sort</strong></span>
+                <ul>
+                    <li>Bước 1: i = 0;</li>
+                    <li>Bước 2: j = i + 1;</li>
+                    <li>Bước 3:</li>
+                    <li>Khi j < n thì kiểm tra: nếu a[j] < a[i] <br> thì hoán vị a[j] và a[i].</li>
+                    <li>Gán j = j + 1; rồi thực hiện lại bước 3.</li>
+                    <li>Bước 4: i=i+1; nếu i < n-1 thì lặp lại bước 2, ngược lại -> Dừng.</li>
+                </ul>
+            </div>
+            <div class="w-50 mr-4">
+                <span><strong>Sắp xếp đổi chỗ trực tiếp - Interchange Sort</strong></span>
+                <div id="interChange_sort" class="array mt-2 mb-3"></div>
+            </div>
+            <div class="w-25">
+                <span><strong>Độ phức tạp của thuật toán Interchange Sort</strong></span>
+                <span class="d-block">Độ phức tạp thuật toán là O(n2).</span>
+                <span>Thời gian chạy: </span>
+                <span id="interChange"></span>
+                <span>ms</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="Insertion_sort" class="tabcontent w-75 mb-5">
+        <div class="d-flex">
+            <div class="w-25">
+                <span><strong>Giải thuật sắp xếp chèn trực tiếp insertion sort</strong></span>
+                <ul>
+                    <li>1: Gán i = 1</li>
+                    <li>2: Gán x = A[i] và pos = i – 1</li>
+                    <li>3: Nếu pos >= 0 và A[pos] > x</li>
+                    <li>A[pos + 1] = A[pos]</li>
+                    <li>pos = pos – 1</li>
+                    <li>Quay lại bước 3</li>
+                    <li>4: A[pos + 1] = x</li>
+                    <li>5: Nếu i < n</li>
+                    <li>Đúng thì i = i + 1 và quay lại bước 2</li>
+                    <li>Sai thì dừng lại</li>
+                </ul>
+            </div>
+            <div class="w-50 mr-4">
+                <span><strong>Thuật toán sắp xếp chèn trực tiếp insertion sort</strong></span>
+                <div id="insertion_sort" class="array mt-2 mb-3"></div>
+            </div>
+            <div class="w-25">
+                <span><strong>Độ phức tạp của thuật toán chèn trực tiếp insertion sort</strong></span>
+                <span class="d-block">Độ phức tạp về thời gian: O (n * 2)</span>
+                <span>Thời gian chạy: </span>
+                <span id="insertion"></span>
+                <span>ms</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="Selection_Sort" class="tabcontent w-75 mb-5">
+        <div class="d-flex">
+            <div class="w-25">
+                <span><strong>Giải thuật chọn trực tiếp Selection Sort</strong></span>
+                <ul>
+                    <li>1. Gán i = 0</li>
+                    <li>2. j = j + 1 và min = A[i]</li>
+                    <li>3. Nếu j < n</li>
+                    <li>Nếu Nếu A[j] < A[min] thì min=j</li>
+                    <li>j = j + 1</li>
+                    <li>Quay lại bước 3</li>
+                    <li>4. Đổi chỗ A[min] và A[i]</li>
+                    <li>5. Nếu i < n – 1</li>
+                    <li>Đúng thì i = i + 1 và quay lại bước 2</li>
+                    <li>Sai thì dừng lại</li>
+                </ul>
+            </div>
+            <div class="w-50 mr-4">
+                <span><strong>Array sorting với sắp xếp chọn trực tiếp Selection Sort</strong></span>
+                <div id="selection_sort" class="array mt-2 mb-3"></div>
+            </div>
+            <div class="w-25">
+                <span><strong>Độ phức tạp của thuật toán chọn trực tiếp Selection Sort</strong></span>
+                <span class="d-block">
+                    độ phức tạp thời gian trung bình của thuật toán này là O(n2).
+                </span>
+                <span>Thời gian chạy: </span>
+                <span id="selection"></span>
+                <span>ms</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="BinaryInsertion_Sort" class="tabcontent w-75 mb-5">
+        <div class="d-flex">
+            <div class="w-25">
+                <span><strong>Sắp xếp chèn trực tiếp dựa trên tìm kiếm nhị phân - Binary Insertion Sort</strong></span>
+                <ul>
+                    <li>1. gán i = 1</li>
+                    <li>2. gán l = 0,  r = i - 1, x = array[i]</li>
+                    <li>3. Lặp nếu l < r</li>
+                    <li>m = (l + r)/2 giá trị ở giữa</li>
+                    <li>Nếu m > x thì r = m -1 mảng bên trái</li>
+                    <li>else r = m + 1 mảng bên phải</li>
+                    <li>4. lặp Nếu array[j] = array[j - 1]</li>
+                    <li>array[l] = x;</li>
+                </ul>
+            </div>
+            <div class="w-50 mr-4">
+                <span><strong>tìm kiếm nhị phân - Binary Insertion Sort</strong></span>
+                <div id="binaryInsertion_sort" class="array mt-2 mb-3"></div>
+            </div>
+            <div class="w-25">
+                <span><strong>Độ phức tạp của thuật toán tìm kiếm nhị phân Binary Insertion Sort</strong></span>
+                <span class="d-block">Độ phức tạp của thuật toán là O(log(N))</span>
+                <span>Thời gian chạy: </span>
+                <span id="binaryInsertion"></span>
+                <span>ms</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
